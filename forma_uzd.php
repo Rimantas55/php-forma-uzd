@@ -1,60 +1,60 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-	<title>Langeliu generatorius</title>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<style>
-	.square {
-		border: 1 solid black;
-		float: left;
-		display: inline;
-		margin: 5px;
-		padding: 5px;
-	}
-	.red {
-		background-color: red;
-	}
-	.blue {
-		background-color: blue;
-	}
-	</style>
-
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>PHP Squares</title>
 </head>
-
 <body>
-	
-	<h1>PHP langeliu generatorius</h1>
-	<form action="forma_uzd.php" method="get">
-		<input type="text" name="count" required="true">
-		<br />
 
-		<select name="color">
-			<option value="red" class="red">Red</option>
-			<option value="blue" class="blue">Blue</option>
-			<option value="random" <?php echo = rand($random) ?>Random</option>
-		</select>
-
-		<input type="submit" value="Submit">
-	</form>
-
-<?php
-// // $count = 8979878784;
-// echo isset($count);
-// if (isset($_POST['nickname']) || }}) {
-// 	echo $_POST['nickname'];
-// } else {
-// 	echo "Nickname is not set. Please enter below";
-// }
-	if (isset($_GET['count'])) {
-		for ($i=1; $i <= $_GET['count']; $i++) { 
-			echo "<div class='square " . $_GET['color']."'>$i</div>";
-		} if {
-			echo ;
-
-	}
-	
-	?>
-
+	<div class="container">
+		<h1>PHP Squares</h1>
+		<div class="row">
+			<form action="forma_uzd.php" method="get">
+				<div class="form-group">
+					<label for="count">Square count</label>
+					<input type="text" class="form-control" name="count">
+					<select name="color" class="form-control">
+						<option value="red" class="red">Red</option>
+						<option value="blue" class="blue">Blue</option>
+						<option value="random">Random</option>
+					</select>
+				</div>    				
+				<button type="submit" class="btn btn-primary">Generate</button>
+			</form>
+		</div>
+		<h2>Generated squares</h2>
+		<div class="row">
+			<?php
+			if (isset($_GET['count']) && !empty($_GET['count'])) {
+				if ($_GET['color'] == 'random') {
+					for ($i=1; $i <= $_GET['count']; $i++) { 
+						$r = rand(0, 254); 
+						$g = rand(0, 254);
+						$b = rand(0, 254);
+						echo "<div class='square' style='background: rgb(".$r.",".$g.",".$b." )'>" . $i . "</div>";
+					}
+				} else {
+					
+					for ($i=1; $i <= $_GET['count']; $i++) { 
+						echo "<div class='square ".$_GET['color']."'>" . $i . "</div>";
+					} 
+				}
+				// $i = 0;
+				// while ($i <= $_GET['count']) {
+				// 	echo "<div class='square'>" . $i . "</div>";
+				// 	$i = $i / 50 + 50;
+				// }
+			} else {
+				echo "No squares";
+			};
+			?>
+		</div>
+	</div>
+</body>
 </html>
-
-<!--1<div class='square red'>gyjgyhiuhu</div>-->
