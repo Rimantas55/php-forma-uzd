@@ -20,8 +20,8 @@
 					<label for="count">Square count</label>
 					<input type="text" class="form-control" name="count">
 					<select name="color" class="form-control">
-						<option value="red" class="red">Red</option>
-						<option value="blue" class="blue">Blue</option>
+						<option value="red">Red</option>
+						<option value="blue">Blue</option>
 						<option value="random">Random</option>
 					</select>
 				</div>    				
